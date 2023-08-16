@@ -74,6 +74,7 @@ export default function TextForm(props) {
         navigator.clipboard.writeText(text)
     }
 
+    // comment
     const wordCount = ()=>{
         let a = text.trim().split(" ");
         let l = a.length;
