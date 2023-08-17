@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types' // for prop type filter
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+// import { BrowserRouter, Link, Route } from 'react-router-dom';
 
 // DO NOT MODIFY PROP VALUES
 // PROPS MUST BE READ ONLY
@@ -14,16 +14,16 @@ export default function Navbar(props){
                 <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
                     <div className="container-fluid">
                         
-                        <Link className="navbar-brand" to="/">{props.title}</Link>
+                        <a className="navbar-brand" href="/">{props.title}</a>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                <Link class="nav-link active" aria-current="page" to={"/"}>Home</Link>
+                                <a class="nav-link active" aria-current="page" href={"/"}>Home</a>
                                 {/* <Link to="/">Home</Link> */}
                                 </li>
                                 <li class="nav-item">
-                                <Link class="nav-link" to="/about">About</Link>
+                                <a class="nav-link" href="/about">About</a>
                                 </li>
                             </ul>
                         </div>

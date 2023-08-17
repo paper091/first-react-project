@@ -7,12 +7,12 @@ import TextForm from "./components/TextForm.js"
 import Alert from './components/Alert';
 import About from './components/About';
 
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter,
+//   Route,
+//   Routes,
+//   Link
+// } from "react-router-dom";
 
 let name = "Nitish"
 
@@ -69,15 +69,16 @@ function App() {
   return (
     //react jsx fragment (empty tag for enclosing various tags/components)
     <>  
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
 
     <Navbar title="textUtil.io" mode={mode} toggleMode={toggleMode}/>
     <Alert alert={alert}/>
+    <TextForm/>
     
-    <Routes>
+    {/* <Routes>
       <Route path="/" element={<TextForm heading="Enter the text to analyze" mode={mode} raiseAlert={raiseAlert}/>}/>
       <Route path="/about" element={<About/>}/>
-    </Routes>
+    </Routes> */}
     
     
     {/* <Link to={router}>abt</Link> */}
@@ -92,7 +93,7 @@ function App() {
       <TextForm heading="Enter the text to analyze" mode={mode} raiseAlert={raiseAlert}/>
     </div> */}
 
-    </BrowserRouter>
+    {/* </BrowserRouter> */}
     </>
   );
 }
