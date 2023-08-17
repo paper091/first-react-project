@@ -5,7 +5,7 @@ import { BrowserRouter, Link, Route } from 'react-router-dom';
 // DO NOT MODIFY PROP VALUES
 // PROPS MUST BE READ ONLY
 
-
+// for github pages
 export default function Navbar(props){
 
     return(
