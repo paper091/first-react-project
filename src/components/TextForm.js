@@ -17,6 +17,7 @@ export default function TextForm(props) {
         console.log("Up click");
         console.log("Button Clicked" + text);
         let newText = text.toUpperCase();
+        props.raiseAlert("Converted to uppercase", "success");
         setText(newText)
     }    
 
@@ -24,9 +25,10 @@ export default function TextForm(props) {
         console.log("Low click");
         console.log("Button Clicked" + text);
         let newText = text.toLowerCase();
+        props.raiseAlert("Converted to lowercase", "success");
         setText(newText)
     }    
-
+    
     const handleSaneClick = ()=>{
         console.log("Sane click");
         console.log("Button Clicked" + text);
@@ -42,13 +44,14 @@ export default function TextForm(props) {
         console.log(arr)
         // let newText = arr.join(".");
         setText(newText)
+        props.raiseAlert("Converted to sentence case", "success");
     }
-
+    
     const handleDumbClick = ()=>{
         console.log("Dumb clicked")
-
+        
         let temp = Array.from(text);
-  
+        
         temp.map( (elem, index)=>{
             if(index%2 === 0){
                 temp[index] = elem.toLowerCase();
@@ -59,21 +62,23 @@ export default function TextForm(props) {
         });
         
         setText(temp.toString().split(",").join(""))
+        props.raiseAlert("Converted to dumb case", "success");
     }
-
+    
     // spam function
     const sp = ()=>{
         let temp = "  "
         setText(temp);
     }
-
+    
     const copyText = ()=>{
         let field = document.getElementById("textInput");
         field.select();
         // copyText.setSelectionRange(0, 99999); // For mobile devices
         navigator.clipboard.writeText(text)
+        props.raiseAlert("Text copied", "success");
     }
-
+    
     // comment
     const wordCount = ()=>{
         let a = text.trim().split(" ");
@@ -81,10 +86,10 @@ export default function TextForm(props) {
         if(a[l-1] === " " || a[l-1] === ""){
             return l-1;
         }
-
+        
         return l;
     }
-
+    
     const readTime = ()=>{
         let w = wordCount();
         let total =  w * 0.0034;
@@ -92,7 +97,7 @@ export default function TextForm(props) {
         let secs = ((total - mins)*60).toFixed(0);
         return mins+" minutes and "+secs+" seconds";
     }
-
+    
     return (
         <>
             <div className="container" style={{color: (props.mode==='light')?'#000000':'#ffffff'}}>
@@ -106,19 +111,19 @@ export default function TextForm(props) {
                     <button className="btn btn-primary mx-2" onClick={handleSaneClick}>Sane person</button>
                     <button className="btn btn-primary mx-2" onClick={handleDumbClick}>dUmB dOwN</button>
                     <button className="btn btn-secondary mx-2" onClick={copyText}>copy</button> 
-                    <button className="btn btn-secondary mx-2" onClick={()=>{setText("")}}>clear</button> 
+                    <button className="btn btn-secondary mx-2" onClick={()=>{setText(""); props.raiseAlert("Text cleared", "success")}}>clear</button> 
                     {/* position-relative end-0 */}
                     {/* <div className="btn-group dropend">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Spam
+                        Spam
                         </button>
                         <ul class="dropdown-menu mx-3">
-                            <li><button class="dropdown-item" type="button" onClick={sp()}>x2</button></li>
-                            <li><button class="dropdown-item" type="button" onClick={spam(5)}>x5</button></li>
-                            <li><button class="dropdown-item" type="button" onClick={spam(10)}>x10</button></li>
-                            <li><button class="dropdown-item" type="button" onClick={spam(25)}>x25</button></li>
-                            <li><button class="dropdown-item" type="button" onClick={spam(50)}>x50</button></li>
-                            <li><button class="dropdown-item" type="button" onClick={spam(100)}>x100</button></li>
+                        <li><button class="dropdown-item" type="button" onClick={sp()}>x2</button></li>
+                        <li><button class="dropdown-item" type="button" onClick={spam(5)}>x5</button></li>
+                        <li><button class="dropdown-item" type="button" onClick={spam(10)}>x10</button></li>
+                        <li><button class="dropdown-item" type="button" onClick={spam(25)}>x25</button></li>
+                        <li><button class="dropdown-item" type="button" onClick={spam(50)}>x50</button></li>
+                        <li><button class="dropdown-item" type="button" onClick={spam(100)}>x100</button></li>
                         </ul>
                     </div> */}
                 </div>
