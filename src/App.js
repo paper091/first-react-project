@@ -73,7 +73,7 @@ function App() {
 
     <Navbar title="textUtil.io" mode={mode} toggleMode={toggleMode}/>
     <Alert alert={alert}/>
-    <TextForm/>
+    <TextForm heading="Enter the text to analyze" mode={mode} raiseAlert={raiseAlert}/>
     
     {/* <Routes>
       <Route path="/" element={<TextForm heading="Enter the text to analyze" mode={mode} raiseAlert={raiseAlert}/>}/>

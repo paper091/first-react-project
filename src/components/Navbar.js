@@ -14,16 +14,16 @@ export default function Navbar(props){
                 <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
                     <div className="container-fluid">
                         
-                        <a className="navbar-brand" href="/">{props.title}</a>
+                        <a className="navbar-brand" href="#">{props.title}</a>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href={"/"}>Home</a>
+                                <a class="nav-link active" aria-current="page" href={"#"}>Home</a>
                                 {/* <Link to="/">Home</Link> */}
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="/about">About</a>
+                                <a class="nav-link" href="#">About</a>
                                 </li>
                             </ul>
                         </div>
